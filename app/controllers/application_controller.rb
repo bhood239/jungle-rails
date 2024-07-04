@@ -29,4 +29,10 @@ class ApplicationController < ActionController::Base
     }
     cookies[:cart]
   end
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |name, password|
+      name == "Jungle" && password == "book"
+    end
+  end
 end
